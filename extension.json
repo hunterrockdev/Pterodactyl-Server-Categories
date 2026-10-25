@@ -1,0 +1,35 @@
+{
+    "$schema": "../sdk/manifest.schema.json",
+    "id": "server-categories",
+    "name": "Server Categories",
+    "version": "1.0.0",
+    "description": "Organize and group your servers into customizable, collapsible categories with automatic egg matching.",
+    "author": "Hunterrock",
+    "icon": "tags",
+    "provider": "Hunterrock\\ServerCategories\\ServerCategoriesServiceProvider",
+    "autoload": {
+        "Hunterrock\\ServerCategories\\": "src/server"
+    },
+    "ui": {
+        "entry": "dist/client.js",
+        "mode": "native",
+        "prefix": "sc",
+        "screens": [
+            {
+                "id": "categories",
+                "area": "admin",
+                "path": "categories",
+                "nav": {
+                    "label": "Categories",
+                    "icon": "tags"
+                }
+            }
+        ],
+        "views": [
+            "dashboard.serverList"
+        ]
+    },
+    "requires": {
+        "sdk": ">=2.0.0-beta.5 <3.0"
+    }
+}
