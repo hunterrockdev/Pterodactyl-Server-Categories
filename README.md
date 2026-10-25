@@ -2,9 +2,10 @@
 
 <div align="center">
 
-[![Latest Release](https://img.shields.io/github/v/release/hunterrockdev/server-categories?style=for-the-badge&color=blue)](https://github.com/hunterrockdev/server-categories/releases)
+[![Latest Release](https://img.shields.io/github/v/release/hunterrockdev/Pterodactyl-Server-Categories?style=for-the-badge&color=blue)](https://github.com/hunterrockdev/Pterodactyl-Server-Categories/releases)
+[![Downloads](https://img.shields.io/github/downloads/hunterrockdev/Pterodactyl-Server-Categories/total?style=for-the-badge&color=purple)](https://github.com/hunterrockdev/Pterodactyl-Server-Categories/releases)
 [![Pterodactyl](https://img.shields.io/badge/Pterodactyl-v2.0.0--beta-3b82f6?style=for-the-badge&logo=pterodactyl)](https://pterodactyl.io)
-[![License](https://img.shields.io/github/license/hunterrockdev/server-categories?style=for-the-badge&color=green)](LICENSE)
+[![License](https://img.shields.io/github/license/hunterrockdev/Pterodactyl-Server-Categories?style=for-the-badge&color=green)](LICENSE)
 [![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20TR%20%7C%20DE%20%7C%20RU%20%7C%20AR-orange?style=for-the-badge)](#-multi-language-support-i18n)
 
 **A sleek, modern server categorization & smart filtering extension built exclusively for Pterodactyl v2.**
@@ -67,7 +68,7 @@ Language is configured globally by administrators under **Admin ➔ Extensions �
 ## 📦 Installation
 
 ### Option 1: Web Installer (Recommended)
-1. Download **[server-categories-1.0.0.pteroext](https://github.com/hunterrockdev/server-categories/releases/download/latest/server-categories-1.0.0.pteroext)**.
+1. Download **[server-categories-1.0.0.pteroext](https://github.com/hunterrockdev/Pterodactyl-Server-Categories/releases/download/latest/server-categories-1.0.0.pteroext)**.
 2. Go to your Pterodactyl Admin panel: **Admin ➔ Extensions** (`/admin/extensions`).
 3. Click the **"Install"** button in the top right.
 4. Upload the downloaded `.pteroext` file.
@@ -76,7 +77,7 @@ Language is configured globally by administrators under **Admin ➔ Extensions �
 ### Option 2: Artisan CLI
 Download and install directly from your Pterodactyl server terminal:
 ```bash
-curl -Lo /tmp/server-categories-1.0.0.pteroext https://github.com/hunterrockdev/server-categories/releases/download/latest/server-categories-1.0.0.pteroext
+curl -Lo /tmp/server-categories-1.0.0.pteroext https://github.com/hunterrockdev/Pterodactyl-Server-Categories/releases/download/latest/server-categories-1.0.0.pteroext
 php artisan p:extension:install /tmp/server-categories-1.0.0.pteroext
 ```
 
@@ -103,8 +104,8 @@ To build and package the extension yourself:
 
 ```bash
 # Clone the repository
-git clone https://github.com/hunterrockdev/server-categories.git
-cd server-categories
+git clone https://github.com/hunterrockdev/Pterodactyl-Server-Categories.git
+cd Pterodactyl-Server-Categories
 
 # Install frontend dependencies
 npm install
