@@ -1,0 +1,43 @@
+/*
+ * Tailwind CSS for the server-categories extension.
+ * Prefix "sc" keeps utilities namespaced: sc:flex, sc:bg-red-500, etc.
+ */
+@import 'tailwindcss/theme.css' layer(theme) prefix(sc);
+@import 'tailwindcss/utilities.css' layer(utilities) prefix(sc);
+@import '../../../sdk/theme.css';
+@source './**/*.{ts,tsx}';
+
+/*
+ * Sidebar Navigation Label Localization
+ * Pure CSS replacement preserves React Virtual DOM nodes completely,
+ * preventing any Node.insertBefore or reconciliation crashes.
+ */
+
+/* 1. İngilizce dışındaki dillerde orijinal "Categories" metnini görünmez yap */
+html[data-sc-localize="true"]:not([data-sc-lang="en"]) a[href*="/categories"] span.inline-flex > span:not([aria-hidden]) {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+/* 2. Yerine seçili dile uygun başlığı göster */
+html[data-sc-localize="true"][data-sc-lang="tr"] a[href*="/categories"] span.inline-flex > span:not([aria-hidden])::after {
+    content: "Kategoriler" !important;
+    font-size: 0.875rem !important;
+}
+
+html[data-sc-localize="true"][data-sc-lang="de"] a[href*="/categories"] span.inline-flex > span:not([aria-hidden])::after {
+    content: "Kategorien" !important;
+    font-size: 0.875rem !important;
+}
+
+html[data-sc-localize="true"][data-sc-lang="ru"] a[href*="/categories"] span.inline-flex > span:not([aria-hidden])::after {
+    content: "Категории" !important;
+    font-size: 0.875rem !important;
+}
+
+html[data-sc-localize="true"][data-sc-lang="ar"] a[href*="/categories"] span.inline-flex > span:not([aria-hidden])::after {
+    content: "الفئات" !important;
+    font-size: 0.875rem !important;
+}
