@@ -1,66 +1,150 @@
-# Pterodactyl Server Categories Extension (`.pteroext`)
+# 📂 Pterodactyl Server Categories Extension (`.pteroext`)
 
-A **Server Categories & Filtering** extension built specifically for **Pterodactyl v2.0.0-beta**.
+<div align="center">
 
-Organizes and groups your dashboard servers into customizable, collapsible category sections with smart automatic egg matching and admin management.
+[![Latest Release](https://img.shields.io/github/v/release/hunterrockdev/server-categories?style=for-the-badge&color=blue)](https://github.com/hunterrockdev/server-categories/releases)
+[![Pterodactyl](https://img.shields.io/badge/Pterodactyl-v2.0.0--beta-3b82f6?style=for-the-badge&logo=pterodactyl)](https://pterodactyl.io)
+[![License](https://img.shields.io/github/license/hunterrockdev/server-categories?style=for-the-badge&color=green)](LICENSE)
+[![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20TR%20%7C%20DE%20%7C%20RU%20%7C%20AR-orange?style=for-the-badge)](#-multi-language-support-i18n)
+
+**A sleek, modern server categorization & smart filtering extension built exclusively for Pterodactyl v2.**
+
+Organize your dashboard servers into customizable, collapsible category sections with smart automatic egg matching, live server counters, and global database synchronization.
+
+[✨ Features](#-key-features) • [📦 Installation](#-installation) • [⚙️ Configuration](#-admin-management--smart-rules) • [🌍 Languages](#-multi-language-support-i18n) • [🛠️ Building](#-building-from-source)
+
+</div>
 
 ---
 
 ## 🌟 Key Features
 
-1. **Collapsible Category Sections (Dashboard):**
-   - Servers are grouped vertically into clean accordion sections by category (`🎮 Game Servers`, `🤖 Discord & Bots`, `🌐 Web & APIs`, etc.).
-   - Each section can be toggled open or closed with smooth animation, remembering collapsed states across reloads.
-2. **Dedicated Admin Management Screen (`Admin -> Categories`):**
-   - Automatically added to the **Admin panel left sidebar**.
-   - Create, edit, reorder, and delete categories.
-   - Configure **Smart Automatic Matching Rules**:
-     - **Egg Tag**: Automatically assign servers created with specific eggs/tags (e.g., `minecraft`, `paper`, `rust`, `palworld`).
-     - **Egg Feature**: Match based on egg features (e.g., `eula`).
-     - **Docker Image**: Match based on container image (e.g., `python`, `node`, `java`).
-     - **Server Name Contains**: Match based on server name keywords (e.g., `bot`, `test`, `dev`).
-     - **Server UUID**: Force a specific server into a category (manual override).
-   - **Export / Import**: Backup or transfer your categories and rules in JSON format.
-3. **Multi-Language Support (i18n):**
-   - Built-in support for 5 languages: 🇬🇧 English, 🇹🇷 Türkçe, 🇩🇪 Deutsch, 🇷🇺 Русский, 🇸🇦 العربية.
-   - Configurable globally via **Admin -> Extensions -> Settings**.
-   - Optional toggle for localizing the left navigation sidebar menu label.
-4. **Global Database Synchronization:**
-   - Categories, rules, and manual server assignments are stored directly in Pterodactyl's database (`extension_settings`), making them 100% global across all users and devices.
-   - Category collapse/expand state remains local per user on their personal dashboard.
-5. **Category Badges (`dashboard.serverRow.name.after`):**
-   - Inline colored badge next to each server name displaying the category emoji and name.
-6. **Dashboard Top Filter Bar (`dashboard.before`):**
-   - Quick category pills with live server counts and layout mode switcher (Grouped / List).
-7. **Zero Conflict & Lightweight:**
-   - Isolated Tailwind prefix (`sc`).
-   - Pure CSS DOM replacement for sidebar localization (zero React virtual DOM crashes).
-   - Uses Pterodactyl SDK's shared React & Query import maps (bundle size ~13 KB).
+### 📑 1. Collapsible Grouped & Unified List Views
+- **Accordion Groups**: Servers are grouped into clean, collapsible accordion sections (`🎮 Game Servers`, `🤖 Discord & Bots`, `🌐 Web & APIs`, etc.).
+- **Smooth Animations**: Animated expand/collapse toggles with individual server counts and online indicators.
+- **View Switcher**: Switch between **Grouped** view and **Unified List** view on the fly.
+- **Personal Local Preferences**: Category collapse states are preserved locally per user in `localStorage`.
+
+### ⚡ 2. Smart Automatic Matching Rules
+No need to assign servers one by one! Define intelligent matching criteria in the Admin panel:
+- **🥚 Egg Tags**: Automatically categorizes servers whose egg tags contain keywords (e.g. `minecraft`, `paper`, `rust`, `palworld`).
+- **✨ Egg Features**: Matches servers based on egg feature flags (e.g. `eula`, `java_version`).
+- **🐳 Docker Images**: Matches servers by container image name (e.g. `python`, `node`, `java`, `ghcr.io`).
+- **🏷️ Server Name Contains**: Matches based on server name keywords (case-insensitive).
+- **🖥️ Specific UUID**: Directly force an individual server into a category, overriding automatic rules.
+
+### 🌐 3. Global Database Persistence
+- All categories, custom colors, icons, auto-matching rules, and manual UUID overrides are saved in the Pterodactyl MySQL database (`extension_settings`).
+- **100% Global**: What an admin configures is instantly live for all clients, subusers, and administrators across all devices.
+- **Clean Uninstallation**: When the extension is uninstalled via Pterodactyl's extension manager, all database entries are automatically purged without leaving behind orphan tables.
+
+### 🏷️ 4. Category Badges & Quick Filtering
+- **Status Badges**: Inline badges displaying the category emoji and title next to every server across the dashboard.
+- **Interactive Filter Bar**: Filter pill buttons with live active server counts (`All`, `🎮 Game Servers (4)`, `📁 Other (1)`).
+
+### 🛡️ 5. Zero Conflicts & Virtual DOM Safety
+- Namespaced Tailwind prefix (`sc:`) to avoid style bleeding with other panel themes or extensions.
+- Pure CSS pseudo-element injection for sidebar localization—**zero React Fiber or Virtual DOM reconciliation crashes**.
+
+---
+
+## 🌍 Multi-Language Support (i18n)
+
+The extension includes complete built-in localization across all screens:
+
+| Flag | Language | Native Name | Code |
+| :---: | :--- | :--- | :---: |
+| 🇬🇧 | English | English | `en` |
+| 🇹🇷 | Turkish | Türkçe | `tr` |
+| 🇩🇪 | German | Deutsch | `de` |
+| 🇷🇺 | Russian | Русский | `ru` |
+| 🇸🇦 | Arabic | العربية | `ar` |
+
+Language is configured globally by administrators under **Admin ➔ Extensions ➔ Server Categories (Settings)**. Includes an optional toggle to localize the left sidebar navigation menu item.
 
 ---
 
 ## 📦 Installation
 
-### 1. Web Installer (Recommended)
-1. Go to your Pterodactyl Admin panel: **Admin -> Extensions** (`/admin/extensions`).
-2. Click the **"Install"** button in the top right.
-3. Upload `server-categories-1.0.0.pteroext`.
-4. Check **"Enable after install"** and confirm.
+### Option 1: Web Installer (Recommended)
+1. Download the latest `server-categories-1.0.0.pteroext` from [GitHub Releases](https://github.com/hunterrockdev/server-categories/releases).
+2. Go to your Pterodactyl Admin panel: **Admin ➔ Extensions** (`/admin/extensions`).
+3. Click the **"Install"** button in the top right.
+4. Upload `server-categories-1.0.0.pteroext`.
+5. Check **"Enable after install"** and confirm.
 
-### 2. Artisan CLI
-On your Pterodactyl server:
+### Option 2: Artisan CLI
+Upload the `.pteroext` package to your panel server and run:
 ```bash
 php artisan p:extension:install /path/to/server-categories-1.0.0.pteroext
 ```
 
 ---
 
+## ⚙️ Admin Management & Smart Rules
+
+Once installed, a new **Categories** entry will automatically appear in your Admin navigation menu:
+
+1. **Create & Edit Categories**:
+   - Customize name, emoji icon, and color palette.
+   - Reorder categories with up/down controls.
+2. **Preset Templates**:
+   - Click **"Load Presets"** to automatically populate recommended templates (`Game Servers`, `Bots`, `Web`, `Dev & Staging`, `Other`).
+3. **Backup & Migration**:
+   - **Export JSON**: Download your entire category layout and rules as a single JSON file.
+   - **Import JSON**: Restore or transfer categories across different Pterodactyl nodes and panels.
+
+---
+
 ## 🛠️ Building from Source
 
+To build and package the extension yourself:
+
 ```bash
-cd packages/server-categories
+# Clone the repository
+git clone https://github.com/hunterrockdev/server-categories.git
+cd server-categories
+
+# Install frontend dependencies
 npm install
-npm run build
+
+# Run TypeScript typechecks
+npm run typecheck
+
+# Build and create .pteroext bundle
 npm run pack
 ```
-This produces `server-categories-1.0.0.pteroext`.
+
+The compiled package will be generated at `./server-categories-1.0.0.pteroext`.
+
+---
+
+## 📁 Repository Structure
+
+```text
+├── extension.json                    # Pterodactyl v2 Extension Manifest
+├── pack.php                          # Native .pteroext packaging script
+├── routes/
+│   ├── client.php                    # Public authenticated read routes
+│   └── admin.php                     # Root administrator write routes
+├── src/
+│   ├── client/                       # React 19 Frontend Components
+│   │   ├── admin/                    # Admin Categories management screen
+│   │   ├── CategoryBadge.tsx         # Inline server badge component
+│   │   ├── CategoryFilterBar.tsx     # Top filter bar component
+│   │   ├── FilteredServerList.tsx    # Collapsible grouped server list override
+│   │   ├── i18n.ts                   # Central 5-language translation dictionaries
+│   │   ├── store.ts                  # State management & backend API synchronization
+│   │   └── styles.css                # Namespaced Tailwind styles & sidebar CSS
+│   └── server/                       # Laravel PHP Backend
+│       ├── ServerCategoriesController.php
+│       └── ServerCategoriesServiceProvider.php
+└── vite.config.mjs                   # SDK Vite build configuration
+```
+
+---
+
+## 📄 License
+
+This extension is licensed under the [MIT License](LICENSE).
+Feel free to contribute, open issues, or submit pull requests!
