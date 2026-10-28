@@ -340,7 +340,11 @@ export function updateCategory(categoryId: string, patch: Partial<Omit<Category,
 }
 
 export function loadPresets() {
-    saveCategories([...PRESET_CATEGORIES]);
+    const localized = PRESET_CATEGORIES.map((c) => ({
+        ...c,
+        name: i18n.presets[c.id as keyof typeof i18n.presets] ?? c.name,
+    }));
+    saveCategories(localized);
 }
 
 export function resetToDefaults() {

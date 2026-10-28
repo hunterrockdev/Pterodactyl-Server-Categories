@@ -41,3 +41,33 @@ html[data-sc-localize="true"][data-sc-lang="ar"] a[href*="/categories"] span.inl
     content: "الفئات" !important;
     font-size: 0.875rem !important;
 }
+
+html[data-sc-localize="true"][data-sc-lang="es"] a[href*="/categories"] span.inline-flex > span:not([aria-hidden])::after {
+    content: "Categorías" !important;
+    font-size: 0.875rem !important;
+}
+
+html[data-sc-localize="true"][data-sc-lang="fr"] a[href*="/categories"] span.inline-flex > span:not([aria-hidden])::after {
+    content: "Catégories" !important;
+    font-size: 0.875rem !important;
+}
+
+html[data-sc-localize="true"][data-sc-lang="it"] a[href*="/categories"] span.inline-flex > span:not([aria-hidden])::after {
+    content: "Categorie" !important;
+    font-size: 0.875rem !important;
+}
+
+html[data-sc-localize="true"][data-sc-lang="pt-BR"] a[href*="/categories"] span.inline-flex > span:not([aria-hidden])::after {
+    content: "Categorias" !important;
+    font-size: 0.875rem !important;
+}
+
+html[data-sc-localize="true"][data-sc-lang="nl"] a[href*="/categories"] span.inline-flex > span:not([aria-hidden])::after {
+    content: "Categorieën" !important;
+    font-size: 0.875rem !important;
+}
+
+html[data-sc-localize="true"][data-sc-lang="pl"] a[href*="/categories"] span.inline-flex > span:not([aria-hidden])::after {
+    content: "Kategorie" !important;
+    font-size: 0.875rem !important;
+}

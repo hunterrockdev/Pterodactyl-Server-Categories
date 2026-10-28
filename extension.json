@@ -2,7 +2,7 @@
     "$schema": "../sdk/manifest.schema.json",
     "id": "server-categories",
     "name": "Server Categories",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Organize and group your servers into customizable, collapsible categories with automatic egg matching.",
     "author": "Hunterrock",
     "icon": "tags",

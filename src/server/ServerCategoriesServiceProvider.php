@@ -19,15 +19,22 @@ class ServerCategoriesServiceProvider extends ExtensionProvider
     public function register(): void
     {
         $this->registerSettings(new ExtensionSettingsDefinition($this->settings(), [
-            ExtensionSettingDefinition::make('default_language', 'default_language', 'en')
+            ExtensionSettingDefinition::make('default_language', 'default_language', 'system')
                 ->label('Default Language / Varsayılan Dil')
-                ->help('Select the default language for server categories across dashboard and admin screens.')
+                ->help('Select "System Default" to automatically follow the active panel / Multi-Language extension language, or choose a fixed language for Server Categories.')
                 ->field('select', [
-                    ['value' => 'en', 'label' => '🇬🇧 English'],
+                    ['value' => 'system', 'label' => '🌐 System Default'],
+                    ['value' => 'en', 'label' => '🇺🇸 English'],
                     ['value' => 'tr', 'label' => '🇹🇷 Türkçe'],
                     ['value' => 'de', 'label' => '🇩🇪 Deutsch'],
                     ['value' => 'ru', 'label' => '🇷🇺 Русский'],
                     ['value' => 'ar', 'label' => '🇸🇦 العربية'],
+                    ['value' => 'es', 'label' => '🇪🇸 Español'],
+                    ['value' => 'fr', 'label' => '🇫🇷 Français'],
+                    ['value' => 'it', 'label' => '🇮🇹 Italiano'],
+                    ['value' => 'pt-BR', 'label' => '🇧🇷 Português (BR)'],
+                    ['value' => 'nl', 'label' => '🇳🇱 Nederlands'],
+                    ['value' => 'pl', 'label' => '🇵🇱 Polski'],
                 ])
                 ->frontend(),
             ExtensionSettingDefinition::make('localize_sidebar', 'localize_sidebar', false)

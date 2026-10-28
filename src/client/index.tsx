@@ -7,7 +7,7 @@ import { fetchGlobalData } from './store';
 
 export default definePterodactylExtension({
     setup({ config, slots, views, screens }) {
-        const defaultLang = typeof config?.default_language === 'string' ? config.default_language : 'en';
+        const defaultLang = typeof config?.default_language === 'string' ? config.default_language : 'system';
         const localizeSidebar = Boolean(config?.localize_sidebar);
         initDefaultLanguage(defaultLang, localizeSidebar);
 

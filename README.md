@@ -6,11 +6,11 @@
 [![Downloads](https://img.shields.io/github/downloads/hunterrockdev/Pterodactyl-Server-Categories/total?style=for-the-badge&color=purple)](https://github.com/hunterrockdev/Pterodactyl-Server-Categories/releases)
 [![Pterodactyl](https://img.shields.io/badge/Pterodactyl-v2.0.0--beta-3b82f6?style=for-the-badge&logo=pterodactyl)](https://pterodactyl.io)
 [![License](https://img.shields.io/github/license/hunterrockdev/Pterodactyl-Server-Categories?style=for-the-badge&color=green)](LICENSE)
-[![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20TR%20%7C%20DE%20%7C%20RU%20%7C%20AR-orange?style=for-the-badge)](#-multi-language-support-i18n)
+[![Languages](https://img.shields.io/badge/Languages-11%20Supported-orange?style=for-the-badge)](#-multi-language-support-i18n)
 
 **A sleek, modern server categorization & smart filtering extension built exclusively for Pterodactyl v2.**
 
-Organize your dashboard servers into customizable, collapsible category sections with smart automatic egg matching, live server counters, and global database synchronization.
+Organize your dashboard servers into customizable, collapsible category sections with smart automatic egg matching, live server counters, 11-language localization, and global database synchronization.
 
 [✨ Features](#-key-features) • [📦 Installation](#-installation) • [⚙️ Configuration](#-admin-management--smart-rules) • [🌍 Languages](#-multi-language-support-i18n) • [🛠️ Building](#-building-from-source)
 
@@ -51,24 +51,31 @@ No need to assign servers one by one! Define intelligent matching criteria in th
 
 ## 🌍 Multi-Language Support (i18n)
 
-The extension includes complete built-in localization across all screens:
+The extension includes complete built-in localization across all 11 languages:
 
 | Flag | Language | Native Name | Code |
 | :---: | :--- | :--- | :---: |
-| 🇬🇧 | English | English | `en` |
+| 🇺🇸 | English | English | `en` |
 | 🇹🇷 | Turkish | Türkçe | `tr` |
 | 🇩🇪 | German | Deutsch | `de` |
 | 🇷🇺 | Russian | Русский | `ru` |
 | 🇸🇦 | Arabic | العربية | `ar` |
+| 🇪🇸 | Spanish | Español | `es` |
+| 🇫🇷 | French | Français | `fr` |
+| 🇮🇹 | Italian | Italiano | `it` |
+| 🇧🇷 | Portuguese (Brazil) | Português (Brasil) | `pt-BR` |
+| 🇳🇱 | Dutch | Nederlands | `nl` |
+| 🇵🇱 | Polish | Polski | `pl` |
 
-Language is configured globally by administrators under **Admin ➔ Extensions ➔ Server Categories (Settings)**. Includes an optional toggle to localize the left sidebar navigation menu item.
+- **Automatic Cross-Extension & Panel Sync**: If the **Multi-Language** extension is installed or the default language is changed in **Admin ➔ Settings** (`/admin/settings`), Server Categories automatically detects and switches to the active language in real time without refreshing.
+- **Standalone Support**: When used standalone, the default language and optional sidebar menu localization can be configured under **Admin ➔ Extensions ➔ Server Categories (Settings)**.
 
 ---
 
 ## 📦 Installation
 
 ### Option 1: Web Installer (Recommended)
-1. Download **[server-categories-1.0.0.pteroext](https://github.com/hunterrockdev/Pterodactyl-Server-Categories/releases/download/latest/server-categories-1.0.0.pteroext)**.
+1. Download **[server-categories-1.0.1.pteroext](https://github.com/hunterrockdev/Pterodactyl-Server-Categories/releases/latest/download/server-categories-1.0.1.pteroext)**.
 2. Go to your Pterodactyl Admin panel: **Admin ➔ Extensions** (`/admin/extensions`).
 3. Click the **"Install"** button in the top right.
 4. Upload the downloaded `.pteroext` file.
@@ -77,8 +84,8 @@ Language is configured globally by administrators under **Admin ➔ Extensions �
 ### Option 2: Artisan CLI
 Download and install directly from your Pterodactyl server terminal:
 ```bash
-curl -Lo /tmp/server-categories-1.0.0.pteroext https://github.com/hunterrockdev/Pterodactyl-Server-Categories/releases/download/latest/server-categories-1.0.0.pteroext
-php artisan p:extension:install /tmp/server-categories-1.0.0.pteroext
+curl -Lo /tmp/server-categories-1.0.1.pteroext https://github.com/hunterrockdev/Pterodactyl-Server-Categories/releases/latest/download/server-categories-1.0.1.pteroext
+php artisan p:extension:install /tmp/server-categories-1.0.1.pteroext
 ```
 
 ---
@@ -91,7 +98,7 @@ Once installed, a new **Categories** entry will automatically appear in your Adm
    - Customize name, emoji icon, and color palette.
    - Reorder categories with up/down controls.
 2. **Preset Templates**:
-   - Click **"Load Presets"** to automatically populate recommended templates (`Game Servers`, `Bots`, `Web`, `Dev & Staging`, `Other`).
+   - Click **"Load Presets"** to automatically populate recommended templates (`Game Servers`, `Bots`, `Web`, `Dev & Staging`, `Other`) in your active language.
 3. **Backup & Migration**:
    - **Export JSON**: Download your entire category layout and rules as a single JSON file.
    - **Import JSON**: Restore or transfer categories across different Pterodactyl nodes and panels.
@@ -117,14 +124,14 @@ npm run typecheck
 npm run pack
 ```
 
-The compiled package will be generated at `./server-categories-1.0.0.pteroext`.
+The compiled package will be generated at `./server-categories-1.0.1.pteroext`.
 
 ---
 
 ## 📁 Repository Structure
 
 ```text
-├── extension.json                    # Pterodactyl v2 Extension Manifest
+├── extension.json                    # Pterodactyl v2 Extension Manifest (v1.0.1)
 ├── pack.php                          # Native .pteroext packaging script
 ├── routes/
 │   ├── client.php                    # Public authenticated read routes
@@ -135,7 +142,7 @@ The compiled package will be generated at `./server-categories-1.0.0.pteroext`.
 │   │   ├── CategoryBadge.tsx         # Inline server badge component
 │   │   ├── CategoryFilterBar.tsx     # Top filter bar component
 │   │   ├── FilteredServerList.tsx    # Collapsible grouped server list override
-│   │   ├── i18n.ts                   # Central 5-language translation dictionaries
+│   │   ├── i18n.ts                   # Central 11-language translation & live sync
 │   │   ├── store.ts                  # State management & backend API synchronization
 │   │   └── styles.css                # Namespaced Tailwind styles & sidebar CSS
 │   └── server/                       # Laravel PHP Backend
